@@ -11,6 +11,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
+  
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -62,6 +63,50 @@
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-bg: rgb(223, 226, 255, 255);
+  
+}
+
+
+/* Staggered Vertical Items ------------------------------------------------------*/
+.item-header {
+  position: absolute;
+  top: 150px;
+  left: -1.8%;
+  z-index: 100;
+}
+
+.item-header .vertical-part {
+  margin: 0 -4px;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: auto;
+  font-size: 7vw;
+  color: #fff;
+}
+
+.vertical-part {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.vertical-part b {
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.item-header .vertical-part b {
+  transition: .5s;
+}
+
+.item-description .vertical-part b {
+  transition: .21s;
+}
+
+.item.active .item-header .vertical-part b {
+  transform: translateY(0);
+}
+
+.item.active .item-description .vertical-part b {
+  transform: translateY(0);
 }
 
 *,
@@ -87,7 +132,7 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  
+  font-family: 'Fjalla One', sans-serif;
 }
 
 hr {
@@ -2502,13 +2547,13 @@ textarea.form-control-lg {
   filter: brightness(90%);
 }
 .form-check-input:focus {
-  border-color: #ffe480;
+  border-color: #1DB954;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(255, 200, 0, 0.25);
 }
 .form-check-input:checked {
-  background-color: #ffc800;
-  border-color: #ffc800;
+  background-color: #1DB954;
+  border-color: #1DB954;
 }
 .form-check-input:checked[type=checkbox] {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
@@ -2517,8 +2562,8 @@ textarea.form-control-lg {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #ffc800;
-  border-color: #ffc800;
+  background-color: #1DB954;
+  border-color: #1DB954;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 .form-check-input:disabled {
@@ -3034,6 +3079,11 @@ textarea.form-control-lg {
   color: #000;
   background-color: #1DB954;
   border-color: #1DB954;
+}
+.btn-niby {
+  color: #000;
+  background-color: #c808f1;
+  border-color: #c808f1;
 }
 .btn-primary:hover {
   color: #fff;
@@ -11290,6 +11340,7 @@ textarea.form-control-lg {
 }
 html {
   scroll-padding-top: 4.5rem;
+  height: 100%;
 }
 
 body {
@@ -11791,6 +11842,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+  
 }
 
 a {
@@ -11807,6 +11859,164 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
 }
 
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 00px;
+  padding: 0px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -11817,7 +12027,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #5846f9;
+  background: #fff;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -12287,32 +12497,32 @@ section {
 }
 
 /*--------------------------------------------------------------
-# About
+# Quienes Somos
 --------------------------------------------------------------*/
-.about {
+.quienessomos {
   padding: 120px 0;
 }
-.about .content h3 {
+.quienessomos .content h3 {
   font-weight: 600;
   font-size: 32px;
   color: #2c4964;
 }
-.about .content ul {
+.quienessomos .content ul {
   list-style: none;
   padding: 0;
 }
-.about .content ul li {
+.quienessomos .content ul li {
   padding-bottom: 10px;
 }
-.about .content ul i {
+.quienessomos .content ul i {
   font-size: 20px;
   padding-right: 4px;
   color: #5846f9;
 }
-.about .content p:last-child {
+.quienessomos .content p:last-child {
   margin-bottom: 0;
 }
-.about .content .read-more {
+.quienessomos .content .read-more {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -12325,10 +12535,10 @@ section {
   background: linear-gradient(45deg, #5846f9 0%, #7b27d8 100%);
   position: relative;
 }
-.about .content .read-more:hover {
+.quienessomos .content .read-more:hover {
   background: linear-gradient(180deg, #5846f9 0%, #7b27d8 100%);
 }
-.about .content .read-more i {
+.quienessomos .content .read-more i {
   font-size: 22px;
   position: absolute;
   right: 20px;
