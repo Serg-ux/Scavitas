@@ -4133,7 +4133,6 @@ textarea.form-control-lg {
   flex-grow: 1;
   align-items: center;
 }
-
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
@@ -4143,14 +4142,17 @@ textarea.form-control-lg {
   border-radius: 0.25rem;
   transition: box-shadow 0.15s ease-in-out;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .navbar-toggler {
     transition: none;
   }
 }
+
 .navbar-toggler:hover {
   text-decoration: none;
 }
+
 .navbar-toggler:focus {
   text-decoration: none;
   outline: 0;
@@ -4166,6 +4168,7 @@ textarea.form-control-lg {
   background-position: center;
   background-size: 100%;
 }
+
 
 .navbar-nav-scroll {
   max-height: var(--bs-scroll-height, 75vh);
